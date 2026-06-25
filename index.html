@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Landing Page</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    header p {
+      opacity: 0.8;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .form-box, .video-box {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #22c55e;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #16a34a;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 180px;
+      border-radius: 10px;
+    }
+
+    .success {
+      margin-top: 10px;
+      color: #22c55e;
+      font-weight: bold;
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Accede al Contenido Exclusivo</h1>
+  <p>Deja tus datos para continuar o acceder al contenido</p>
+</header>
+
+<div class="container">
+
+  <!-- FORMULARIO -->
+  <div class="form-box">
+    <h2>Registro</h2>
+
+    <form id="leadForm">
+      <input type="text" id="name" placeholder="Nombre completo" required>
+      <input type="tel" id="phone" placeholder="Teléfono" required>
+      <input type="email" id="email" placeholder="Email" required>
+
+      <button type="submit">Enviar y Continuar</button>
+      <div id="msg" class="success"></div>
+    </form>
+  </div>
+
+  <!-- VIDEOS -->
+  <div class="video-box">
+    <h2>Videos informativos</h2>
+
+    <div class="video-grid">
+
+      <!-- Cambia estos links por tus videos de YouTube -->
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const form = document.getElementById("leadForm");
+  const msg = document.getElementById("msg");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const email = document.getElementById("email").value;
+
+    // Aquí puedes enviar a backend o WhatsApp
+    console.log({ name, phone, email });
+
+    msg.textContent = "✔ Datos enviados correctamente. Pronto te contactaremos.";
+
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
